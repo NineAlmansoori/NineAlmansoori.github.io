@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY BABE</title>
+    <link rel="stylesheet" href="../css/envleo.css">
+
+
+</head>
+<body onmousemove="moveEnvelope(event)">
+
+    <div id="envelope" onclick="startAnimation()">
+        <a id="nextpg" href="cake.html">
+            <img id="envelopimg" src="../IMG/2024_02_01_12c_Kleki.png" alt="envelope">
+        </a>
+    </div>
+
+    <script>
+        function startAnimation() {
+            var envelope = document.getElementById('envelope');
+            envelope.classList.add('run-animation');
+
+            // You can add more logic or remove the onclick attribute to prevent further clicks if needed
+            envelope.removeAttribute('onclick');
+        }
+
+        function moveEnvelope(event) {
+            var envelope = document.getElementById('envelope');
+            var x = event.clientX;
+            var y = event.clientY;
+
+            var offsetX = 40; 
+            var offsetY = 40; 
+            var maxX = window.innerWidth - (envelope.offsetWidth + 40); 
+            var maxY = window.innerHeight - (envelope.offsetHeight + 40); 
+
+            x = Math.max(0, Math.min(x + offsetX, maxX));
+            y = Math.max(0, Math.min(y + offsetY, maxY));
+
+
+            envelope.style.transform = `translate(${x}px, ${y}px)`;
+        }
+    </script>
+</body>
+</html>

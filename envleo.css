@@ -1,0 +1,45 @@
+body {
+    background-color: #ff99cc; 
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow:;
+}
+
+#envelope {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.5s ease,rotate 1s linear;
+    
+}
+
+#envelopimg  {
+    max-width: 45%;
+    height: auto;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+@keyframes runAway {
+    0% {
+        transform: translate(0, 0);
+    }
+    60% {
+        transform: translate(1000px, -500px); 
+    }
+}
+
+.run-animation {
+    animation: runAway 5s linear infinite;
+}
+#title{
+    text-align: center;
+  
+    
+}

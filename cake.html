@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/cake.css">
+    
+</head>
+<body>
+    <h1 id="title">Happy birthday ya old fart</h1>
+    <h2 id="title2">wish a wish and blow the candle يامطيع </h2>
+
+    <div class="cakeimg">
+        <img src="../img/2024_02_03_10w_Kleki.png" usemap="#image-map">
+    </div>
+    <map name="image-map">
+        <area target="" alt="meow" title="meow" href="" coords="270,260,165,151" shape="rect">
+        <area target="" alt="ilyyy " title="ilyyy " href="" coords="323,144,420,249" shape="rect">
+        <area target="" alt="i love uuuuuuuuuu" title="i love uuuuuuuuuu" href="" coords="464,152,558,252" shape="rect">
+        <area target="" alt="ييععععع" title="" href="" coords="" shape="rect">
+        <area target="" alt="ا ح ب ك" title="يالي مكمل بالتواصيف وانت عوض عن كل مافات " href="" coords="33,41,136,137" shape="rect">
+        <area target="" alt="ماعرف شكتب اهني" title="يعععععع عزيزز" href="" coords="55,169,165,324" shape="rect">
+        <area target="" alt="happy birthday babe" title="happy birthday babe" href="" coords="187,276,377,427" shape="rect">
+        <area target="" alt="mmmwwwaahhh" title="mmmwwwaahhh" href="" coords="401,266,551,636" shape="rect">
+        <area target="" alt="ilyyyy" title="ilyyyy" href="" coords="159,20,565,130" shape="rect">
+        <area target="" alt="كتبت 25 كلمه" title="كتبت 25 كلمه" href="" coords="589,42,717,167" shape="rect">
+        <area target="" alt="امممووووااااححح" title="امممووووااااححح" href="" coords="576,185,699,449" shape="rect">
+        <area target="" alt=" يالي مكمل بالتواصيف وانت عوض عن كل ما فات " title=" يالي مكمل بالتواصيف وانت عوض عن كل ما فات " href="" coords="17,334,150,423" shape="rect">
+        <area target="" alt="وانت غني عن كل تعريف حالي و مالي و الارادات" title="وانت غني عن كل تعريف حالي و مالي و الارادات" href="" coords="27,435,387,610" shape="rect">
+        <area target="" alt="meeewwwwooo" title="meeewwwwooo" href="" coords="564,457,705,634" shape="rect">
+        <area target="" alt="f6f6 on top " title="f6f6 on top " href="" coords="28,622,712,723" shape="rect">
+    
+    </map>
+
+    <div class="overlay">
+        <!-- First Candle -->
+        <span class="candle">
+            <span class="glow"></span>
+            <span class="flames"></span>
+            <span class="thread"></span>
+        </span>
+        
+        <!-- Second Candle -->
+        <span class="candle2">
+            <span class="glow2"></span>
+            <span class="flames2"></span>
+            <span class="thread2"></span>
+        </span>
+        
+        <!-- Third Candle -->
+        <span class="candle3">
+            <span class="glow3"></span>
+            <span class="flames3"></span>
+            <span class="thread3"></span>
+        </span>
+    </div>
+
+    <div class="lightballs">
+        <span style="--i: 1"></span>
+        <span style="--i: 3"></span>
+        <span style="--i: 5"></span>
+        <span style="--i: 7"></span>
+        <span style="--i: 9"></span>
+        <span style="--i: 11"></span>
+        <span style="--i: 13"></span>
+        <span style="--i: 15"></span>
+        <span style="--i: 17"></span>
+        <span style="--i: 19"></span>
+        <span style="--i: 21"></span>
+        <span style="--i: 23"></span>
+        <span style="--i: 25"></span>
+        <span style="--i: 27"></span>
+        <span style="--i: 29"></span>
+        <span style="--i: 31"></span>
+        <span style="--i: 33"></span>
+        <span style="--i: 35"></span>
+        <span style="--i: 37"></span>
+        <span style="--i: 39"></span>
+        <span style="--i: 2"></span>
+        <span style="--i: 4"></span>
+        <span style="--i: 6"></span>
+        <span style="--i: 8"></span>
+        <span style="--i: 10"></span>
+        <span style="--i: 12"></span>
+        <span style="--i: 14"></span>
+        <span style="--i: 16"></span>
+        <span style="--i: 18"></span>
+        <span style="--i: 20"></span>
+        <span style="--i: 22"></span>
+        <span style="--i: 24"></span>
+        <span style="--i: 26"></span>
+        <span style="--i: 28"></span>
+        <span style="--i: 30"></span>
+        <span style="--i: 32"></span>
+        <span style="--i: 34"></span>
+        <span style="--i: 36"></span>
+        <span style="--i: 38"></span>
+        <span style="--i: 40"></span>
+    </div>
+
+    <script>
+        const context = new (window.AudioContext || window.webkitAudioContext)();
+        const candle = document.getElementById("candle");
+        const flame = document.getElementById("flame");
+    
+        // Check if the user granted permission to access the microphone
+        let stream;
+        navigator.mediaDevices.getUserMedia({ audio: true })
+      .then(function (stream) {
+        // Create a new MediaStreamAudioSourceNode
+        stream = context.createMediaStreamSource(stream);
+    
+        // Create a new AnalyserNode
+        analyser = context.createAnalyser();
+        stream.connect(analyser);
+    
+        // Get the frequency data from the AnalyserNode
+        analyser.fftSize = 2048;
+        let bufferLength = analyser.frequencyBinCount;
+        let dataArray = new Uint8Array(bufferLength);
+    
+        // Update the candle every 100ms
+        setInterval(() => {
+          analyser.getByteFrequencyData(dataArray);
+          let sum = 0;
+          for (let i = 0; i < bufferLength; i++) {
+            sum += dataArray[i];
+          }
+          let average = sum / bufferLength;
+    
+          // If the average volume is high, blow out the candle
+          if (average > 150) {
+            flame.style.height = "0px";
+            flame.style.backgroundColor = "gray";
+          } else {
+            flame.style.height = "30px";
+            flame.style.backgroundColor = "orange";
+          }
+        }, 100);
+      })
+      .catch(function (err) {
+        console.error("Error getting audio stream", err);
+      });
+    </script>
+    
+
+
+
+    
+</body>
+</html>
